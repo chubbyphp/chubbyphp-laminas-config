@@ -2,10 +2,10 @@
 
 [![Build Status](https://api.travis-ci.org/chubbyphp/chubbyphp-laminas-config.png?branch=master)](https://travis-ci.org/chubbyphp/chubbyphp-laminas-config)
 [![Coverage Status](https://coveralls.io/repos/github/chubbyphp/chubbyphp-laminas-config/badge.svg?branch=master)](https://coveralls.io/github/chubbyphp/chubbyphp-laminas-config?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/chubbyphp/chubbyphp-laminas-config/v/stable.png)](https://packagist.org/packages/chubbyphp/chubbyphp-laminas-config)
 [![Total Downloads](https://poser.pugx.org/chubbyphp/chubbyphp-laminas-config/downloads.png)](https://packagist.org/packages/chubbyphp/chubbyphp-laminas-config)
 [![Monthly Downloads](https://poser.pugx.org/chubbyphp/chubbyphp-laminas-config/d/monthly)](https://packagist.org/packages/chubbyphp/chubbyphp-laminas-config)
-[![Latest Stable Version](https://poser.pugx.org/chubbyphp/chubbyphp-laminas-config/v/stable.png)](https://packagist.org/packages/chubbyphp/chubbyphp-laminas-config)
-[![Latest Unstable Version](https://poser.pugx.org/chubbyphp/chubbyphp-laminas-config/v/unstable)](https://packagist.org/packages/chubbyphp/chubbyphp-laminas-config)
+[![Daily Downloads](https://poser.pugx.org/chubbyphp/chubbyphp-laminas-config/d/daily)](https://packagist.org/packages/chubbyphp/chubbyphp-laminas-config)
 
 ## Description
 
