@@ -29,6 +29,8 @@ composer require chubbyphp/chubbyphp-laminas-config "^1.0"
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Chubbyphp\Laminas\Config\Config;
 use Chubbyphp\Laminas\Config\ContainerFactory;
 
@@ -78,6 +80,8 @@ Replace the contents of `config/container.php` with the following:
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Chubbyphp\Laminas\Config\Config;
 use Chubbyphp\Laminas\Config\ContainerFactory;
