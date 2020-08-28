@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Chubbyphp\Laminas\Config;
 
 use Chubbyphp\Container\Container;
+use Chubbyphp\Container\Parameter;
 use Psr\Container\ContainerInterface;
 
 final class Config implements ConfigInterface
@@ -24,9 +25,7 @@ final class Config implements ConfigInterface
 
     public function configureContainer(Container $container): void
     {
-        $container->factory('config', function () {
-            return $this->config;
-        });
+        $container->factory('config', new Parameter($this->config));
 
         if (!isset($this->config['dependencies'])) {
             return;
