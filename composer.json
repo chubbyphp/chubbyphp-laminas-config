@@ -17,7 +17,7 @@
     ],
     "require": {
         "php": "^7.2",
-        "chubbyphp/chubbyphp-container": "^1.2"
+        "chubbyphp/chubbyphp-container": "^1.3"
     },
     "require-dev": {
         "chubbyphp/chubbyphp-dev-helper": "dev-master",
@@ -42,7 +42,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0-dev"
+            "dev-master": "1.1-dev"
         }
     },
     "scripts": {

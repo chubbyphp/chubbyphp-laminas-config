@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace Chubbyphp\Laminas\Config;
 
-use Chubbyphp\Container\Container;
+use Chubbyphp\Container\ContainerInterface;
+use Chubbyphp\Container\MinimalContainer;
 
 final class ContainerFactory
 {
-    public function __invoke(ConfigInterface $config, ?Container $container = null): Container
+    public function __invoke(ConfigInterface $config, ?ContainerInterface $container = null): ContainerInterface
     {
-        $container = $container ?? new Container();
+        $container = $container ?? new MinimalContainer();
         $config->configureContainer($container);
 
         return $container;

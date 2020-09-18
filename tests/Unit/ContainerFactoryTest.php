@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Chubbyphp\Tests\Laminas\Config\Unit;
 
-use Chubbyphp\Container\Container;
+use Chubbyphp\Container\ContainerInterface;
+use Chubbyphp\Container\MinimalContainer;
 use Chubbyphp\Laminas\Config\ConfigInterface;
 use Chubbyphp\Laminas\Config\ContainerFactory;
 use Chubbyphp\Mock\Argument\ArgumentInstanceOf;
@@ -23,7 +24,7 @@ final class ContainerFactoryTest extends TestCase
     public function testFactoryWithoutGivenContainer(): void
     {
         $config = $this->getMockByCalls(ConfigInterface::class, [
-            Call::create('configureContainer')->with(new ArgumentInstanceOf(Container::class)),
+            Call::create('configureContainer')->with(new ArgumentInstanceOf(ContainerInterface::class)),
         ]);
 
         $factory = new ContainerFactory();
@@ -32,7 +33,7 @@ final class ContainerFactoryTest extends TestCase
 
     public function testFactoryWithGivenContainer(): void
     {
-        $container = new Container();
+        $container = new MinimalContainer();
 
         $config = $this->getMockByCalls(ConfigInterface::class, [
             Call::create('configureContainer')->with($container),

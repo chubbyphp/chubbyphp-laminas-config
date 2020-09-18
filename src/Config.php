@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace Chubbyphp\Laminas\Config;
 
-use Chubbyphp\Container\Container;
+use Chubbyphp\Container\ContainerInterface;
 use Chubbyphp\Container\Parameter;
-use Psr\Container\ContainerInterface;
 
 final class Config implements ConfigInterface
 {
@@ -23,7 +22,7 @@ final class Config implements ConfigInterface
         $this->config = $config;
     }
 
-    public function configureContainer(Container $container): void
+    public function configureContainer(ContainerInterface $container): void
     {
         $container->factory('config', new Parameter($this->config));
 
@@ -71,7 +70,7 @@ final class Config implements ConfigInterface
     /**
      * @param array<string, object> $services
      */
-    private function addServices(Container $container, array $services): void
+    private function addServices(ContainerInterface $container, array $services): void
     {
         foreach ($services as $name => $service) {
             $container->factory($name, static function () use ($service) {
@@ -83,7 +82,7 @@ final class Config implements ConfigInterface
     /**
      * @param array<string, string> $invokables
      */
-    private function addInvokables(Container $container, array $invokables): void
+    private function addInvokables(ContainerInterface $container, array $invokables): void
     {
         foreach ($invokables as $invokable) {
             $container->factory($invokable, static function () use ($invokable) {
@@ -95,7 +94,7 @@ final class Config implements ConfigInterface
     /**
      * @param array<string, string|callable> $factories
      */
-    private function addFactories(Container $container, array $factories): void
+    private function addFactories(ContainerInterface $container, array $factories): void
     {
         foreach ($factories as $name => $factory) {
             $container->factory($name, static function (ContainerInterface $container) use ($name, $factory) {
@@ -111,7 +110,7 @@ final class Config implements ConfigInterface
     /**
      * @param array<string, string> $aliases
      */
-    private function addAliases(Container $container, array $aliases): void
+    private function addAliases(ContainerInterface $container, array $aliases): void
     {
         foreach ($aliases as $alias => $target) {
             $container->factory($alias, static function (ContainerInterface $container) use ($target) {
@@ -126,7 +125,7 @@ final class Config implements ConfigInterface
      * @param array<string, string>                      $aliases
      */
     private function addDelegators(
-        Container $container,
+        ContainerInterface $container,
         array $delegators,
         array $services,
         array $aliases

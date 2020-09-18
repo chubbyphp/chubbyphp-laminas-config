@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Chubbyphp\Tests\Laminas\Config\Unit;
 
-use Chubbyphp\Container\Container;
 use Chubbyphp\Container\Exceptions\ContainerException;
+use Chubbyphp\Container\MinimalContainer;
 use Chubbyphp\Laminas\Config\Config;
 use Chubbyphp\Mock\MockByCallsTrait;
 use Chubbyphp\Tests\Laminas\Config\TestAsset\Delegator1;
@@ -27,7 +27,7 @@ final class ConfigTest extends TestCase
 
     public function testNone(): void
     {
-        $container = new Container();
+        $container = new MinimalContainer();
 
         $config = new Config(['key' => 'value']);
         $config->configureContainer($container);
@@ -39,7 +39,7 @@ final class ConfigTest extends TestCase
 
     public function testServices(): void
     {
-        $container = new Container();
+        $container = new MinimalContainer();
 
         $service1 = new Invokable1();
         $service2 = new Invokable2();
@@ -64,7 +64,7 @@ final class ConfigTest extends TestCase
 
     public function testInvokables(): void
     {
-        $container = new Container();
+        $container = new MinimalContainer();
 
         $config = new Config([
             'dependencies' => [
@@ -96,7 +96,7 @@ final class ConfigTest extends TestCase
         $this->expectException(ContainerException::class);
         $this->expectExceptionMessage('Could not create service with id "name"');
 
-        $container = new Container();
+        $container = new MinimalContainer();
 
         $config = new Config([
             'dependencies' => [
@@ -113,7 +113,7 @@ final class ConfigTest extends TestCase
 
     public function testFactories(): void
     {
-        $container = new Container();
+        $container = new MinimalContainer();
 
         $config = new Config([
             'dependencies' => [
@@ -138,7 +138,7 @@ final class ConfigTest extends TestCase
         $this->expectException(ContainerException::class);
         $this->expectExceptionMessage('Could not create service with id "name"');
 
-        $container = new Container();
+        $container = new MinimalContainer();
 
         $config = new Config([
             'dependencies' => [
@@ -155,7 +155,7 @@ final class ConfigTest extends TestCase
 
     public function testAliases(): void
     {
-        $container = new Container();
+        $container = new MinimalContainer();
 
         $config = new Config([
             'dependencies' => [
@@ -185,7 +185,7 @@ final class ConfigTest extends TestCase
 
     public function testDelegators(): void
     {
-        $container = new Container();
+        $container = new MinimalContainer();
 
         $config = new Config([
             'dependencies' => [
