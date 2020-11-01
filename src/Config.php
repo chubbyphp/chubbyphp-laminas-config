@@ -32,22 +32,17 @@ final class Config implements ConfigInterface
 
         $dependencies = $this->config['dependencies'];
 
-        $dependencies['services'] = $dependencies['services'] ?? [];
-        $dependencies['invokables'] = $dependencies['invokables'] ?? [];
-        $dependencies['factories'] = $dependencies['factories'] ?? [];
-        $dependencies['aliases'] = $this->aliases($dependencies['aliases'] ?? [], $dependencies['invokables']);
-        $dependencies['delegators'] = $dependencies['delegators'] ?? [];
+        $services = $dependencies['services'] ?? [];
+        $invokables = $dependencies['invokables'] ?? [];
+        $factories = $dependencies['factories'] ?? [];
+        $aliases = $this->aliases($dependencies['aliases'] ?? [], $invokables);
+        $delegators = $dependencies['delegators'] ?? [];
 
-        $this->addServices($container, $dependencies['services']);
-        $this->addInvokables($container, $dependencies['invokables']);
-        $this->addFactories($container, $dependencies['factories']);
-        $this->addAliases($container, $dependencies['aliases']);
-        $this->addDelegators(
-            $container,
-            $dependencies['delegators'],
-            $dependencies['services'],
-            $dependencies['aliases']
-        );
+        $this->addServices($container, $services);
+        $this->addInvokables($container, $invokables);
+        $this->addFactories($container, $factories);
+        $this->addAliases($container, $aliases);
+        $this->addDelegators($container, $delegators, $services, $aliases);
     }
 
     /**
