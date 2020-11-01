@@ -92,12 +92,12 @@ final class Config implements ConfigInterface
     private function addFactories(ContainerInterface $container, array $factories): void
     {
         foreach ($factories as $name => $factory) {
-            $container->factory($name, static function (ContainerInterface $container) use ($name, $factory) {
+            $container->factory($name, static function (ContainerInterface $psrContainer) use ($name, $factory) {
                 if (is_string($factory) && class_exists($factory)) {
                     $factory = new $factory();
                 }
 
-                return $factory($container, $name);
+                return $factory($psrContainer, $name);
             });
         }
     }
@@ -108,8 +108,8 @@ final class Config implements ConfigInterface
     private function addAliases(ContainerInterface $container, array $aliases): void
     {
         foreach ($aliases as $alias => $target) {
-            $container->factory($alias, static function (ContainerInterface $container) use ($target) {
-                return $container->get($target);
+            $container->factory($alias, static function (ContainerInterface $psrContainer) use ($target) {
+                return $psrContainer->get($target);
             });
         }
     }
@@ -133,13 +133,13 @@ final class Config implements ConfigInterface
             foreach ($delegatorList as $delegator) {
                 $container->factory(
                     $name,
-                    static function (ContainerInterface $container, callable $previous) use ($name, $delegator) {
+                    static function (ContainerInterface $psrContainer, callable $previous) use ($name, $delegator) {
                         if (is_string($delegator) && class_exists($delegator)) {
                             $delegator = new $delegator();
                         }
 
-                        return $delegator($container, $name, static function () use ($container, $previous) {
-                            return $previous($container);
+                        return $delegator($psrContainer, $name, static function () use ($psrContainer, $previous) {
+                            return $previous($psrContainer);
                         });
                     }
                 );
