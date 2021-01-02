@@ -12,7 +12,7 @@ final class Config implements ConfigInterface
     /**
      * @var array<mixed>
      */
-    private $config;
+    private array $config;
 
     /**
      * @param array<mixed> $config
@@ -68,9 +68,7 @@ final class Config implements ConfigInterface
     private function addServices(ContainerInterface $container, array $services): void
     {
         foreach ($services as $name => $service) {
-            $container->factory($name, static function () use ($service) {
-                return $service;
-            });
+            $container->factory($name, static fn () => $service);
         }
     }
 
@@ -80,9 +78,7 @@ final class Config implements ConfigInterface
     private function addInvokables(ContainerInterface $container, array $invokables): void
     {
         foreach ($invokables as $invokable) {
-            $container->factory($invokable, static function () use ($invokable) {
-                return new $invokable();
-            });
+            $container->factory($invokable, static fn () => new $invokable());
         }
     }
 
@@ -108,9 +104,7 @@ final class Config implements ConfigInterface
     private function addAliases(ContainerInterface $container, array $aliases): void
     {
         foreach ($aliases as $alias => $target) {
-            $container->factory($alias, static function (ContainerInterface $psrContainer) use ($target) {
-                return $psrContainer->get($target);
-            });
+            $container->factory($alias, static fn (ContainerInterface $psrContainer) => $psrContainer->get($target));
         }
     }
 
@@ -138,9 +132,7 @@ final class Config implements ConfigInterface
                             $delegator = new $delegator();
                         }
 
-                        return $delegator($psrContainer, $name, static function () use ($psrContainer, $previous) {
-                            return $previous($psrContainer);
-                        });
+                        return $delegator($psrContainer, $name, static fn () => $previous($psrContainer));
                     }
                 );
             }

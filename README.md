@@ -25,7 +25,7 @@ Chubbyphp container adapter using laminas service manager configuration.
 
 ## Requirements
 
- * php: ^7.2|^8.0
+ * php: ^7.4|^8.0
  * [chubbyphp/chubbyphp-container][2]: ^1.3
 
 ## Installation
@@ -33,7 +33,7 @@ Chubbyphp container adapter using laminas service manager configuration.
 Through [Composer](http://getcomposer.org) as [chubbyphp/chubbyphp-laminas-config][1].
 
 ```sh
-composer require chubbyphp/chubbyphp-laminas-config "^1.1"
+composer require chubbyphp/chubbyphp-laminas-config "^1.2"
 ```
 
 ## Usage

@@ -11,7 +11,7 @@ final class ContainerFactory
 {
     public function __invoke(ConfigInterface $config, ?ContainerInterface $container = null): ContainerInterface
     {
-        $container = $container ?? new MinimalContainer();
+        $container ??= new MinimalContainer();
         $config->configureContainer($container);
 
         return $container;
