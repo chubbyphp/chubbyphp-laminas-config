@@ -1,8 +1,8 @@
 # chubbyphp-laminas-config
 
-[![Build Status](https://api.travis-ci.org/chubbyphp/chubbyphp-laminas-config.png?branch=master)](https://travis-ci.org/chubbyphp/chubbyphp-laminas-config)
+[![CI](https://github.com/chubbyphp/chubbyphp-laminas-config/workflows/CI/badge.svg?branch=master)](https://github.com/chubbyphp/chubbyphp-laminas-config/actions?query=workflow%3ACI)
 [![Coverage Status](https://coveralls.io/repos/github/chubbyphp/chubbyphp-laminas-config/badge.svg?branch=master)](https://coveralls.io/github/chubbyphp/chubbyphp-laminas-config?branch=master)
-[![Infection MSI](https://badge.stryker-mutator.io/github.com/chubbyphp/chubbyphp-laminas-config/master)](https://travis-ci.org/chubbyphp/chubbyphp-laminas-config)
+[![Infection MSI](https://badge.stryker-mutator.io/github.com/chubbyphp/chubbyphp-laminas-config/master)](https://dashboard.stryker-mutator.io/reports/github.com/chubbyphp/chubbyphp-laminas-config/master)
 [![Latest Stable Version](https://poser.pugx.org/chubbyphp/chubbyphp-laminas-config/v/stable.png)](https://packagist.org/packages/chubbyphp/chubbyphp-laminas-config)
 [![Total Downloads](https://poser.pugx.org/chubbyphp/chubbyphp-laminas-config/downloads.png)](https://packagist.org/packages/chubbyphp/chubbyphp-laminas-config)
 [![Monthly Downloads](https://poser.pugx.org/chubbyphp/chubbyphp-laminas-config/d/monthly)](https://packagist.org/packages/chubbyphp/chubbyphp-laminas-config)
