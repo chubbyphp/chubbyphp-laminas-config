@@ -8,7 +8,7 @@ use Psr\Container\ContainerInterface;
 
 final class Delegator1
 {
-    public function __invoke(ContainerInterface $container, $name, callable $callback, array $options = null)
+    public function __invoke(ContainerInterface $container, $name, callable $callback, ?array $options = null)
     {
         $object = $callback();
         $object->key1 = 'value1';

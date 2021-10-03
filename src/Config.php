@@ -47,14 +47,14 @@ final class Config implements ConfigInterface
 
     /**
      * @param array<string, string>     $aliases
-     * @param array<string|int, string> $invokables
+     * @param array<int|string, string> $invokables
      *
      * @return array<string, string>
      */
     private function aliases(array $aliases, array $invokables): array
     {
         foreach ($invokables as $name => $invokable) {
-            if (!is_int($name) && $name !== $invokable) {
+            if (!\is_int($name) && $name !== $invokable) {
                 $aliases[$name] = $invokable;
             }
         }
@@ -83,13 +83,13 @@ final class Config implements ConfigInterface
     }
 
     /**
-     * @param array<string, string|callable> $factories
+     * @param array<string, callable|string> $factories
      */
     private function addFactories(ContainerInterface $container, array $factories): void
     {
         foreach ($factories as $name => $factory) {
             $container->factory($name, static function (ContainerInterface $psrContainer) use ($name, $factory) {
-                if (is_string($factory) && class_exists($factory)) {
+                if (\is_string($factory) && class_exists($factory)) {
                     $factory = new $factory();
                 }
 
@@ -109,7 +109,7 @@ final class Config implements ConfigInterface
     }
 
     /**
-     * @param array<string, array<int, string|callable>> $delegators
+     * @param array<string, array<int, callable|string>> $delegators
      * @param array<string, object>                      $services
      * @param array<string, string>                      $aliases
      */
@@ -128,7 +128,7 @@ final class Config implements ConfigInterface
                 $container->factory(
                     $name,
                     static function (ContainerInterface $psrContainer, callable $previous) use ($name, $delegator) {
-                        if (is_string($delegator) && class_exists($delegator)) {
+                        if (\is_string($delegator) && class_exists($delegator)) {
                             $delegator = new $delegator();
                         }
 
