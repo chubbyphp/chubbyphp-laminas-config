@@ -10,16 +10,10 @@ use Chubbyphp\Container\Parameter;
 final class Config implements ConfigInterface
 {
     /**
-     * @var array<mixed>
-     */
-    private array $config;
-
-    /**
      * @param array<mixed> $config
      */
-    public function __construct(array $config)
+    public function __construct(private array $config)
     {
-        $this->config = $config;
     }
 
     public function configureContainer(ContainerInterface $container): void

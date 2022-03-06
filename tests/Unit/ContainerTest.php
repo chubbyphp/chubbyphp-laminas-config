@@ -13,7 +13,7 @@ use Psr\Container\ContainerInterface;
  * @internal
  * @coversNothing
  */
-final class MezzioContainerConfigTest extends AbstractMezzioContainerConfigTest
+final class ContainerTest extends AbstractMezzioContainerConfigTest
 {
     protected function createContainer(array $config): ContainerInterface
     {
