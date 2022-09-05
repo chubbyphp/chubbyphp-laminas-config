@@ -16,7 +16,7 @@ jobs:
       - name: composer test
         uses: docker://chubbyphp/ci-php80:latest
         env:
-          COMPOSER_ARGS: "--ignore-platform-reqs"
+          COMPOSER_ARGS: "--ignore-platform-req=php+"
           COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
   php81:
@@ -28,7 +28,7 @@ jobs:
       - name: composer test
         uses: docker://chubbyphp/ci-php81:latest
         env:
-          COMPOSER_ARGS: "--ignore-platform-reqs"
+          COMPOSER_ARGS: "--ignore-platform-req=php+"
           COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
       - name: sonarcloud.io
