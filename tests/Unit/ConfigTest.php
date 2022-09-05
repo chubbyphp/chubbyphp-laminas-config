@@ -19,6 +19,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
+ *
  * @covers \Chubbyphp\Laminas\Config\Config
  */
 final class ConfigTest extends TestCase

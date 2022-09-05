@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
+ *
  * @covers \Chubbyphp\Laminas\Config\ContainerFactory
  */
 final class ContainerFactoryTest extends TestCase

@@ -11,6 +11,7 @@ use Psr\Container\ContainerInterface;
 
 /**
  * @internal
+ *
  * @coversNothing
  */
 final class ContainerTest extends AbstractMezzioContainerConfigTest
