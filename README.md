@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/chubbyphp/chubbyphp-laminas-config/workflows/CI/badge.svg?branch=master)](https://github.com/chubbyphp/chubbyphp-laminas-config/actions?query=workflow%3ACI)
 [![Coverage Status](https://coveralls.io/repos/github/chubbyphp/chubbyphp-laminas-config/badge.svg?branch=master)](https://coveralls.io/github/chubbyphp/chubbyphp-laminas-config?branch=master)
-[![Infection MSI](https://badge.stryker-mutator.io/github.com/chubbyphp/chubbyphp-laminas-config/master)](https://dashboard.stryker-mutator.io/reports/github.com/chubbyphp/chubbyphp-laminas-config/master)
+[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fchubbyphp%2Fchubbyphp-laminas-config%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/chubbyphp/chubbyphp-laminas-config/master)[![Latest Stable Version](https://poser.pugx.org/chubbyphp/chubbyphp-laminas-config/v/stable.png)](https://packagist.org/packages/chubbyphp/chubbyphp-laminas-config)
 [![Latest Stable Version](https://poser.pugx.org/chubbyphp/chubbyphp-laminas-config/v/stable.png)](https://packagist.org/packages/chubbyphp/chubbyphp-laminas-config)
 [![Total Downloads](https://poser.pugx.org/chubbyphp/chubbyphp-laminas-config/downloads.png)](https://packagist.org/packages/chubbyphp/chubbyphp-laminas-config)
 [![Monthly Downloads](https://poser.pugx.org/chubbyphp/chubbyphp-laminas-config/d/monthly)](https://packagist.org/packages/chubbyphp/chubbyphp-laminas-config)
@@ -25,15 +25,15 @@ Chubbyphp container adapter using laminas service manager configuration.
 
 ## Requirements
 
- * php: ^8.0
- * [chubbyphp/chubbyphp-container][2]: ^2.1
+ * php: ^8.1
+ * [chubbyphp/chubbyphp-container][2]: ^2.2
 
 ## Installation
 
 Through [Composer](http://getcomposer.org) as [chubbyphp/chubbyphp-laminas-config][1].
 
 ```sh
-composer require chubbyphp/chubbyphp-laminas-config "^1.3"
+composer require chubbyphp/chubbyphp-laminas-config "^1.4"
 ```
 
 ## Usage
