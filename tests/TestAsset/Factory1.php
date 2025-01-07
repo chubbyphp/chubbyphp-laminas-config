@@ -8,7 +8,7 @@ use Psr\Container\ContainerInterface;
 
 final class Factory1
 {
-    public function __invoke(ContainerInterface $container, string $name)
+    public function __invoke()
     {
         return new Invokable1();
     }
