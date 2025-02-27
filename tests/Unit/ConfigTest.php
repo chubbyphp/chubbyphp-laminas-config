@@ -7,7 +7,6 @@ namespace Chubbyphp\Tests\Laminas\Config\Unit;
 use Chubbyphp\Container\Exceptions\ContainerException;
 use Chubbyphp\Container\MinimalContainer;
 use Chubbyphp\Laminas\Config\Config;
-use Chubbyphp\Mock\MockByCallsTrait;
 use Chubbyphp\Tests\Laminas\Config\TestAsset\Delegator1;
 use Chubbyphp\Tests\Laminas\Config\TestAsset\Delegator2;
 use Chubbyphp\Tests\Laminas\Config\TestAsset\Factory1;
@@ -24,8 +23,6 @@ use PHPUnit\Framework\TestCase;
  */
 final class ConfigTest extends TestCase
 {
-    use MockByCallsTrait;
-
     public function testNone(): void
     {
         $container = new MinimalContainer();
@@ -84,18 +81,35 @@ final class ConfigTest extends TestCase
         self::assertTrue($container->has(Invokable3::class));
         self::assertTrue($container->has('name'));
 
-        self::assertInstanceOf(Invokable1::class, $container->get(Invokable1::class));
-        self::assertInstanceOf(Invokable2::class, $container->get(Invokable2::class));
-        self::assertInstanceOf(Invokable3::class, $container->get(Invokable3::class));
-        self::assertInstanceOf(Invokable3::class, $container->get('name'));
+        self::assertInstanceOf(
+            Invokable1::class,
+            $container->get(Invokable1::class)
+        );
+        self::assertInstanceOf(
+            Invokable2::class,
+            $container->get(Invokable2::class)
+        );
+        self::assertInstanceOf(
+            Invokable3::class,
+            $container->get(Invokable3::class)
+        );
+        self::assertInstanceOf(
+            Invokable3::class,
+            $container->get('name')
+        );
 
-        self::assertSame($container->get(Invokable3::class), $container->get('name'));
+        self::assertSame(
+            $container->get(Invokable3::class),
+            $container->get('name')
+        );
     }
 
     public function testInvokablesWithoutClass(): void
     {
         $this->expectException(ContainerException::class);
-        $this->expectExceptionMessage('Could not create service with id "name"');
+        $this->expectExceptionMessage(
+            'Could not create service with id "name"'
+        );
 
         $container = new MinimalContainer();
 
@@ -130,14 +144,22 @@ final class ConfigTest extends TestCase
         self::assertTrue($container->has(Invokable1::class));
         self::assertTrue($container->has(Invokable2::class));
 
-        self::assertInstanceOf(Invokable1::class, $container->get(Invokable1::class));
-        self::assertInstanceOf(Invokable2::class, $container->get(Invokable2::class));
+        self::assertInstanceOf(
+            Invokable1::class,
+            $container->get(Invokable1::class)
+        );
+        self::assertInstanceOf(
+            Invokable2::class,
+            $container->get(Invokable2::class)
+        );
     }
 
     public function testFactoriesWithoutFactory(): void
     {
         $this->expectException(ContainerException::class);
-        $this->expectExceptionMessage('Could not create service with id "name"');
+        $this->expectExceptionMessage(
+            'Could not create service with id "name"'
+        );
 
         $container = new MinimalContainer();
 
@@ -176,12 +198,27 @@ final class ConfigTest extends TestCase
         self::assertTrue($container->has('name1'));
         self::assertTrue($container->has('name2'));
 
-        self::assertInstanceOf(Invokable1::class, $container->get(Invokable1::class));
-        self::assertInstanceOf(Invokable1::class, $container->get('name1'));
-        self::assertInstanceOf(Invokable1::class, $container->get('name2'));
+        self::assertInstanceOf(
+            Invokable1::class,
+            $container->get(Invokable1::class)
+        );
+        self::assertInstanceOf(
+            Invokable1::class,
+            $container->get('name1')
+        );
+        self::assertInstanceOf(
+            Invokable1::class,
+            $container->get('name2')
+        );
 
-        self::assertSame($container->get(Invokable1::class), $container->get('name1'));
-        self::assertSame($container->get(Invokable1::class), $container->get('name2'));
+        self::assertSame(
+            $container->get(Invokable1::class),
+            $container->get('name1')
+        );
+        self::assertSame(
+            $container->get(Invokable1::class),
+            $container->get('name2')
+        );
     }
 
     public function testDelegators(): void
@@ -215,7 +252,10 @@ final class ConfigTest extends TestCase
         self::assertTrue($container->has(\stdClass::class));
         self::assertTrue($container->has('name1'));
 
-        self::assertSame($container->get(\stdClass::class), $container->get('name1'));
+        self::assertSame(
+            $container->get(\stdClass::class),
+            $container->get('name1')
+        );
 
         $service1 = $container->get(\stdClass::class);
 
