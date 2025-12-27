@@ -12,7 +12,7 @@ final class Config implements ConfigInterface
     /**
      * @param array<mixed> $config
      */
-    public function __construct(private array $config) {}
+    public function __construct(private readonly array $config) {}
 
     public function configureContainer(ContainerInterface $container): void
     {
