@@ -22,12 +22,20 @@ final class Config implements ConfigInterface
             return;
         }
 
+        /** @var array{services?: array<string, object>, invokables?: array<string, string>, factories?: array<string, string>, aliases?: array<string, string>, delegators?: array<string, array<int, string>>} */
         $dependencies = $this->config['dependencies'];
 
+        /** @var array<string, object> */
         $services = $dependencies['services'] ?? [];
+
+        /** @var array<string, string> */
         $invokables = $dependencies['invokables'] ?? [];
+
+        /** @var array<string, string> */
         $factories = $dependencies['factories'] ?? [];
         $aliases = $this->aliases($dependencies['aliases'] ?? [], $invokables);
+
+        /** @var array<string, array<int, string>> */
         $delegators = $dependencies['delegators'] ?? [];
 
         $this->addServices($container, $services);
@@ -85,6 +93,8 @@ final class Config implements ConfigInterface
                     $factory = new $factory();
                 }
 
+                /** @var callable(ContainerInterface, string): mixed $factory */
+
                 return $factory($psrContainer, $name);
             });
         }
@@ -123,6 +133,8 @@ final class Config implements ConfigInterface
                         if (\is_string($delegator) && class_exists($delegator)) {
                             $delegator = new $delegator();
                         }
+
+                        /** @var callable(ContainerInterface, string, callable): mixed $delegator */
 
                         return $delegator($psrContainer, $name, static fn () => $previous($psrContainer));
                     }
