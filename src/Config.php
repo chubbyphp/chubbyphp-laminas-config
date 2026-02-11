@@ -22,7 +22,7 @@ final class Config implements ConfigInterface
             return;
         }
 
-        /** @var array{services?: array<string, object>, invokables?: array<string, string>, factories?: array<string, string>, aliases?: array<string, string>, delegators?: array<string, array<int, string>>} */
+        /** @var array{services?: array<string, object>, invokables?: array<string, string>, factories?: array<string, string>, aliases?: array<string, string>, delegators?: array<string, list<string>>} */
         $dependencies = $this->config['dependencies'];
 
         /** @var array<string, object> */
@@ -35,7 +35,7 @@ final class Config implements ConfigInterface
         $factories = $dependencies['factories'] ?? [];
         $aliases = $this->aliases($dependencies['aliases'] ?? [], $invokables);
 
-        /** @var array<string, array<int, string>> */
+        /** @var array<string, list<string>> */
         $delegators = $dependencies['delegators'] ?? [];
 
         $this->addServices($container, $services);
@@ -111,9 +111,9 @@ final class Config implements ConfigInterface
     }
 
     /**
-     * @param array<string, array<int, callable|string>> $delegators
-     * @param array<string, object>                      $services
-     * @param array<string, string>                      $aliases
+     * @param array<string, list<callable|string>> $delegators
+     * @param array<string, object>                $services
+     * @param array<string, string>                $aliases
      */
     private function addDelegators(
         ContainerInterface $container,
