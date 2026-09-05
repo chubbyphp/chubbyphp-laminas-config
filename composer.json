@@ -17,17 +17,17 @@
     ],
     "require": {
         "php": "^8.3",
-        "chubbyphp/chubbyphp-container": "^2.5.1"
+        "chubbyphp/chubbyphp-container": "^2.5.2"
     },
     "require-dev": {
         "chubbyphp/chubbyphp-dev-helper": "dev-master",
-        "chubbyphp/chubbyphp-mock": "^2.2.1",
-        "infection/infection": "^0.34.0",
+        "chubbyphp/chubbyphp-mock": "^2.2.2",
+        "infection/infection": "^0.35.4",
         "laminas/laminas-container-config-test": "^1.2",
         "php-coveralls/php-coveralls": "^2.9.1",
         "phpstan/extension-installer": "^1.4.3",
-        "phpstan/phpstan": "^2.2.5",
-        "phpunit/phpunit": "^11.5.48|^12.5.30"
+        "phpstan/phpstan": "^2.2.13",
+        "phpunit/phpunit": "^11.5.56|^12.5.34"
     },
     "autoload": {
         "psr-4": { "Chubbyphp\\Laminas\\Config\\": "src/" }
